@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.bgImg {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  background-image: url("/img/bg-img.jpg");
+  background-position: center;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  filter: blur(8px);
+}
+
+#mainDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+#mainDiv input {
+  margin-top: 5rem;
+}
+#mainDiv p {
+  margin-top: 0.6rem;
+}
