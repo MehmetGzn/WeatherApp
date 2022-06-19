@@ -4,20 +4,62 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="shortcut icon" href="img/weather-app.png" type="image/png" />
+    <link rel="shortcut icon" href="img/02d@2x.png" type="image/png" />
     <title>Weather App</title>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <div class="bgImg"></div>
-    <div id="mainDiv">
-      <input type="text" />
-      <div>
-        <p class="warsawWeather"></p>
-        <div><p id="currentWeather"></p></div>
-      </div>
-    </div>
+    <header>
+      <h1>Weather App</h1>
+    </header>
+    <main>
+      <section class="sectionSearch">
+        <button class="searchButton">Search</button>
+        <input type="text" class="input" placeholder="Weathers of cities" />
+      </section>
+      <section class="sectionWeatherCards">
+        <ul class="container">
+          <li class="card">
+            <div class="upper">
+              <figure>
+                <h3 class="city-temp">32<sup>°C</sup></h3>
+                <img src="img/02d@2x.png" alt="" />
+                <figcaption>Cloudy</figcaption>
+              </figure>
+            </div>
+            <h2>Warsaw</h2>
+          </li>
+          <li class="card">
+            <div class="upper">
+              <figure>
+                <h3 class="city-temp">32<sup>°C</sup></h3>
+                <img src="img/02d@2x.png" alt="" />
+                <figcaption>Cloudy</figcaption>
+              </figure>
+            </div>
+            <h2>Warsaw</h2>
+          </li>
+          <li class="card">
+            <div class="upper">
+              <figure>
+                <h3 class="city-temp">32<sup>°C</sup></h3>
+                <img src="img/02d@2x.png" alt="" />
+                <figcaption>Cloudy</figcaption>
+              </figure>
+            </div>
+            <h2>Warsaw</h2>
+          </li>
+        </ul>
+      </section>
+    </main>
+
     <script src="js/aes.js"></script>
     <script src="js/Extentions.js"></script>
     <script src="app.js"></script>

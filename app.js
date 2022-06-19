@@ -1,11 +1,11 @@
 let apiKey = DecryptStringAES(localStorage.getItem("apiKey"));
 let apiKey2 = DecryptStringAES(localStorage.getItem("apiKey2"));
-let unitType = "metric";
-let lang = "tr";
+let unitType = "imperial";
+let lang = "pl";
 
 const currentWeather = document.getElementById("currentWeather");
 
-const showPosition = (position) => {
+const success = (position) => {
   const lat = position.coords.latitude;
   const lon = position.coords.longitude;
   console.log(lat);
@@ -21,15 +21,11 @@ const showPosition = (position) => {
   getCurweather();
 };
 
-const getCurPosition = () => {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(showPosition);
-  } else {
-    alert("error");
-  }
+const error = () => {
+  currentWeather.innerText =
+    "Please make your browser's location services available for this site";
 };
-
-getCurPosition();
+navigator.geolocation.getCurrentPosition(success, error);
 
 const warsawWeather = document.querySelector(".warsawWeather");
 
