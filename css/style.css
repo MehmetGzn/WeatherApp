@@ -224,3 +224,66 @@ figure {
   right: -4rem;
   bottom: 5rem;
 }
+
+@media screen and (max-width: 520px) {
+  h1 {
+    position: relative;
+    width: 19rem;
+    padding: 0.8rem 0.2rem;
+    text-align: center;
+    background-color: #d0cab2;
+    border-radius: 0.6rem;
+  }
+  .sectionSearch {
+    position: relative;
+    width: 19rem;
+    padding: 1rem;
+    text-align: center;
+    background-color: #d0cab2;
+    border-radius: 0.6rem;
+  }
+
+  input {
+    margin-left: 1rem;
+  }
+
+  .searchButton {
+    border-radius: 0.6rem;
+    left: 30%;
+    top: 5rem;
+    font-size: 1.3rem;
+  }
+
+  .searchButton::after {
+    content: "";
+    background-color: #112b3c;
+    width: 94%;
+    height: 2rem;
+    bottom: -13px;
+    left: 3%;
+    z-index: -1;
+    border-radius: 0.8rem;
+    box-shadow: none;
+  }
+  .sectionWeatherCards {
+    margin-top: 6rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  h1 {
+    font-size: 1.8rem;
+    padding: 1rem;
+    width: 13rem;
+  }
+  .sectionSearch {
+    width: 14rem;
+    padding: 0.8rem 0rem;
+  }
+
+  input {
+    width: 10rem;
+    font-size: 1.3rem;
+    margin-left: 0.3rem;
+  }
+}
