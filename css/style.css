@@ -74,12 +74,9 @@ input {
   margin-left: 4rem;
   width: 16rem;
 }
+
 input::placeholder {
   color: #3c3c3c;
-}
-
-input:hover ~ input::placeholder {
-  color: #f66b0e;
 }
 
 .searchButton {
@@ -134,7 +131,7 @@ input:hover ~ input::placeholder {
   list-style: none;
   position: relative;
   width: 23%;
-  height: 14rem;
+  height: 18rem;
   max-width: 14rem;
   min-width: 12rem;
   border-radius: 0.8rem;
@@ -178,15 +175,44 @@ input:hover ~ input::placeholder {
 }
 
 .city-temp {
-  font-size: 2rem;
+  font-size: 2.2rem;
   margin-left: 1rem;
 }
 
+sup {
+  margin-top: 0.3rem;
+  font-size: 1.4rem;
+}
+
+.feels-like {
+  color: #3c3c3c;
+  margin-top: 1rem;
+}
+
+.sup2 {
+  font-size: 0.4rem;
+}
+
 figure {
+  padding: 0.4rem;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+figcaption {
+  margin-right: 0.6rem;
+}
+
+.countrySup {
+  background-color: #f66b0e;
+  color: #fff;
+  font-size: 0.6rem;
+  margin-left: 0.5rem;
+  padding: 0.3rem;
+  border-radius: 0.5rem;
 }
 
 .img {
@@ -249,7 +275,7 @@ figure {
 
   .searchButton {
     border-radius: 0.6rem;
-    left: 30%;
+    left: 32%;
     top: 5rem;
     font-size: 1.3rem;
   }
@@ -285,5 +311,8 @@ figure {
     width: 10rem;
     font-size: 1.3rem;
     margin-left: 0.3rem;
+  }
+  .searchButton {
+    left: 26%;
   }
 }
