@@ -209,7 +209,13 @@ sup {
 }
 
 .sup2 {
-  font-size: 0.4rem;
+  font-size: 0.5rem;
+}
+
+h5 {
+  position: absolute;
+  color: #f48e4a;
+  bottom: 0.4rem;
 }
 
 figure {

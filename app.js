@@ -87,6 +87,9 @@ const getWeatherDataFromApi = async () => {
           <h2 class="cityNames">${name}<sup class="countrySup">${
       sys.country
     }</sup></h2>
+          <h3 class="feels-like"> Feels Like ${Math.floor(
+            main.feels_like
+          )}<sup class='sup2'>°C</sup></h3>
         </div>`;
     createdLi.innerHTML = cardInnerText;
     container.prepend(createdLi);
