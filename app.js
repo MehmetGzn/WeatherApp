@@ -1,18 +1,19 @@
 let apiKey = DecryptStringAES(localStorage.getItem("apiKey"));
 let apiKey2 = DecryptStringAES(localStorage.getItem("apiKey2"));
-let unitType = "metric";
 let lang = "en";
+let unitType = "metric";
 const figcaption = document.getElementsByTagName("figcaption")[0];
 const cityTemp = document.getElementsByClassName("city-temp")[0];
 const img = document.getElementsByClassName("img")[0];
 const areaName = document.getElementsByTagName("h2")[0];
 const feelsLike = document.getElementsByClassName("feels-like")[0];
+const currentWeatherCard =
+  document.getElementsByClassName("currentWeatherCard")[0];
+console.log(currentWeatherCard);
 
 const success = (position) => {
   const lat = position.coords.latitude;
   const lon = position.coords.longitude;
-  console.log(lat);
-  console.log(lon);
   const getCurweather = async () => {
     try {
       let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&lang=${lang}&units=${unitType}`;
@@ -27,8 +28,13 @@ const success = (position) => {
         )}<sup class='sup2'>°C</sup>`;
         img.src = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
         areaName.innerHTML = `${name}<sup class="countrySup">${sys.country}</sup>`;
+        currentWeatherCard.style.display = "flex";
       }
-    } catch (error) {}
+    } catch (error) {
+      alert(
+        "Please refresh the site and allow the location services for this site"
+      );
+    }
   };
   getCurweather();
 };
@@ -41,10 +47,11 @@ const error = () => {
 
 navigator.geolocation.getCurrentPosition(success, error);
 
-const warsawWeather = document.querySelector(".warsawWeather");
 const input = document.querySelector(".input");
 const form = document.querySelector(".sectionSearch");
 const container = document.querySelector(".container");
+const cityNames = document.querySelector(".cityNames");
+const cityArray = [];
 
 const getWeatherDataFromApi = async () => {
   let inputVal = input.value;
@@ -52,12 +59,23 @@ const getWeatherDataFromApi = async () => {
   try {
     const response = await axios(url);
     const { name, main, sys, weather } = response.data;
-    let iconUrl = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
-    console.log(response);
+    cityArray.push(name);
+    const cityArrayLower = cityArray.map((element) => {
+      return element.toLowerCase();
+    });
+    console.log(cityArrayLower);
+    if (cityArrayLower.length > 0) {
+      while (cityArrayLower.includes(input.value.toLowerCase())) {
+        console.log("there is a warsaw city on ur list");
+        break;
+      }
+    }
 
+    let iconUrl = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
     const createdLi = document.createElement("li");
     createdLi.classList.add("card");
     const cardInnerText = `
+        <a class="delete" onclick="deleteThis(this)">X</a>
         <div class="upper">
           <h3 class="city-temp">${Math.floor(main.temp)}<sup>°C</sup></h3>
           <figure>
@@ -66,13 +84,19 @@ const getWeatherDataFromApi = async () => {
           </figure>
         </div>
         <div class="info">
-          <h2>${name}<sup class="countrySup">${sys.country}</sup></h2>
+          <h2 class="cityNames">${name}<sup class="countrySup">${
+      sys.country
+    }</sup></h2>
         </div>`;
     createdLi.innerHTML = cardInnerText;
-    console.log(createdLi);
     container.prepend(createdLi);
   } catch {}
+  form.reset();
 };
+
+function deleteThis(selectedTask) {
+  selectedTask.parentElement.style.display = "none";
+}
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();

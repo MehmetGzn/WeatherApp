@@ -129,15 +129,34 @@ input::placeholder {
   display: flex;
   justify-content: center;
   list-style: none;
+  text-align: center;
   position: relative;
-  width: 23%;
+  width: 30%;
   height: 18rem;
-  max-width: 14rem;
-  min-width: 12rem;
+  max-width: 18rem;
+  min-width: 14rem;
   border-radius: 0.8rem;
   background-color: #d0cab2;
   padding-top: 7.5rem;
   margin-bottom: 1.7rem;
+}
+
+.delete {
+  display: none;
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  font-size: 1.1rem;
+  color: #a5a291;
+  cursor: pointer;
+}
+
+.delete:hover {
+  color: #f66b0e;
+}
+
+.card:hover .delete {
+  display: block;
 }
 
 .info {
@@ -249,6 +268,10 @@ figcaption {
   position: absolute;
   right: -4rem;
   bottom: 5rem;
+}
+
+.currentWeatherCard {
+  display: none;
 }
 
 @media screen and (max-width: 520px) {
